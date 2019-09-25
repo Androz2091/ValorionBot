@@ -1,0 +1,22 @@
+[
+    {
+        "type": "faction",
+        "displayName": "serveur de faction",
+        "displayNamePlural": "serveurs de faction"
+    },
+    {
+        "type": "youtubeur",
+        "displayName": "serveur de Youtubeur",
+        "displayNamePlural": "serveurs de Youtubeur"
+    },
+    {
+        "type": "shop",
+        "displayName": "shop",
+        "displayNamePlural": "shops"
+    },
+    {
+        "type": "divers",
+        "displayName": "serveur divers",
+        "displayNamePlural": "serveurs divers"
+    }
+]
