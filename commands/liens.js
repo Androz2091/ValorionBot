@@ -25,8 +25,7 @@ class Liens extends Command {
                 true
             )
             .addField("Launchers",
-                "[Launcher Premium](https://valorion-staff.fr/p/launcher_premium)\n"+
-                "[Launcher Crack](https://valorion-staff.fr/p/launcher_crack)",
+                "[Launcher Premium](https://valorion-staff.fr/p/launcher_premium)\n",
                 true
             )
             .addField("Waren - YouTube",
