@@ -39,6 +39,17 @@ module.exports = {
     },
 
     /**
+     * Gets the Valorion stats
+     * @returns {Object}
+     */
+    async getStats(){
+        let res = await fetch("http://ts.valorion-mc.fr/");
+        let text = await res.text();
+        let [ total, lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 ] = text.split("|").map((s) => s.split(":")[1].split("/")[0]);
+        return { total, lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 };
+    },
+
+    /**
      * Create default channels stats
      * @param {object} client The Discord client
      * @param {object} guild The guild for which the channels will be created
