@@ -25,16 +25,16 @@ class Status extends Command {
 
         try {
             // Fetch data from paladium server
-            let res = await fetch("https://mcapi.us/server/status?ip="+this.client.config.valorion.ip+"&port="+this.client.config.valorion.port);
-            let body = await res.json();
-            let players = (body.players ? body.players.now : 0);
-            embed.setDescription((body.online ? "Les serveurs de Valorion sont en ligne !" : "Les serveurs de Valorion sont en maintenance..."));
-            if(body.online){
-                embed.addField(message.client.emotes.on+" Statut", "Serveurs en ligne !");
-            } else {
-                embed.addField(message.client.emotes.off+" Statut", "Serveurs en maintenance !");
+            let stats = await this.client.functions.getStats().catch(() => {});
+            if(!stats){
+                embed.setDescription("Les serveurs de Valorion sont en maintenance...")
+                .addField(message.client.emotes.off+" Statut", "Serveurs en maintenance !");
+                return m.edit(":bar_chart: | Statistiques de Valorion :", embed);
             }
-            embed.addField(message.client.emotes.player+" Joueurs", players+" joueur(s) connecté(s)");
+            embed.setDescription("Les serveurs de Valorion sont en ligne !")
+            .addField(message.client.emotes.on+" Statut", "Serveurs en ligne !");
+            let text = `Actuellement __${stats.total}__ joueurs connectés sur Valorion !\n__**LOBBY**__\n__Lobby 1__ : ${stats.lobby1} | __Lobby 2__: ${stats.lobby2} | __Lobby 3__ : ${stats.lobby3}\n__**MINAGES**__\n__Minage 1__ : ${stats.minage1} | __Minage 2__ : ${stats.minage2} | __Minage 3__ : ${stats.minage3}\n__**MONDES**__\n__Overworld__ : ${stats.overworld} | __Aether__ : ${stats.aether} | __Lotr__ : ${stats.lotr}`;
+            embed.addField(message.client.emotes.player+" Joueurs connectés", text);
             m.edit(":bar_chart: | Statistiques de Valorion :", embed);
         } catch(e){
             // if there is an error (like the server is down)
