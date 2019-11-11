@@ -24,7 +24,8 @@ module.exports = class {
         // Update the game every 20s
         const games = [
             "craft du Valorion",
-            "aller dans l'Aether",
+            "aller dans l'AetherII",
+            "rejoindre les hobits !",
             "by Androz#2091"
         ];
         client.user.setActivity(games[0]+" | "+client.guilds.size+" serveurs");
