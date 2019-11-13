@@ -36,7 +36,7 @@ class Conseils extends Command {
             .setAuthor("Conseil")
             .setDescription(tip)
             .setColor(data.color)
-            .setFooter("**Une astuce/conseil que vous connaissez ? Dîtes le nous !**");
+            .setFooter("Une astuce/conseil que vous connaissez ? Dîtes le nous !");
         message.channel.send(embed);
 
     }
