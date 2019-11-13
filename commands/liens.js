@@ -17,7 +17,8 @@ class Liens extends Command {
 
         let linksEmbed = new Discord.RichEmbed()
             .addField("Principaux liens de Valorion",
-                "Retrouvez les liens utiles de Valorion !"
+                "Retrouvez les liens utiles de Valorion !",
+                false
             )
             .addField("Site internet",
                 "[Accueil](https://valorion-mc.fr)\n"+
@@ -25,14 +26,14 @@ class Liens extends Command {
                 true
             )
             .addField("Launchers de Valorion :",
-                "[Launcher Premium](https://valorion-staff.fr/p/launcher_premium)\n",
+                "[Launcher Premium](https://valorion-staff.fr/p/launcher_premium)\n"+
                 "[Launcher Crack](https://valorion-staff.fr/p/launcher_crack)\n",
                 true
             )
             .addField("YouTube | Discord",
-                "[V2](https://www.youtube.com/playlist?list=PLoTOukWpJpv0M02m_c_ch1U75N6w1IXQK) | ",+
-                "[V1](https://www.youtube.com/playlist?list=PLoTOukWpJpv3QpYZIi7g6BSL2GhX32e9H)\n",
-                "[Chaîne Communautaire](https://www.youtube.com/channel/UCfCAMuhANlTSrkxjxB84HLA)\n",                            
+                "[V2](https://www.youtube.com/playlist?list=PLoTOukWpJpv0M02m_c_ch1U75N6w1IXQK) | "+
+                "[V1](https://www.youtube.com/playlist?list=PLoTOukWpJpv3QpYZIi7g6BSL2GhX32e9H)\n"+
+                "[Chaîne Communautaire](https://www.youtube.com/channel/UCfCAMuhANlTSrkxjxB84HLA)\n"+                         
                 "[Discord de Waren](https://discord.gg/warentv)\n",
                 true
             )
