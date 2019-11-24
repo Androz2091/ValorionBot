@@ -45,8 +45,8 @@ module.exports = {
     async getStats(){
         let res = await fetch("http://ts.valorion-mc.fr/");
         let text = await res.text();
-        let [ total, lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 ] = text.split("|").map((s) => s.split(":")[1].split("/")[0]);
-        return { total, lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 };
+        let [ lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 ] = text.split("|").map((s) => s.split(":")[1].split("/")[0]);
+        return { lobby1, lobby2, lobby3, overworld, aether, lotr, minage1, minage2, minage3 };
     },
 
     /**

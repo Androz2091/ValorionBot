@@ -26,6 +26,10 @@ class Status extends Command {
         try {
             // Fetch data from paladium server
             let stats = await this.client.functions.getStats().catch(() => {});
+            let total = 0;
+            for(let name in stats){
+                total += parseInt(stats[name] || 0);
+            }
             if(!stats){
                 embed.setDescription("**Les serveurs de Valorion sont en __maintenance__...**")
                 .addField(message.client.emotes.off+" **Statut**", "Serveurs en maintenance !");
@@ -33,10 +37,11 @@ class Status extends Command {
             }
             embed.setDescription("Les serveurs de Valorion sont en ligne !")
             .addField(message.client.emotes.on+" **Statut :**", "Serveurs en ligne !");
-            let text = `Actuellement __${stats.total}__ joueurs sont connectés sur **Valorion** !\n🖐️ __**Lobbys :**__\n •  __Lobby 1__ : ${stats.lobby1} | •  __Lobby 2__: ${stats.lobby2} | •  __Lobby 3__ : ${stats.lobby3}\n⛏️ __** Minages :**__\n • __Minage 1__ : ${stats.minage1} | • __Minage 2__ : ${stats.minage2} | • __Minage 3__ : ${stats.minage3}\n🗡️ __** Mondes Factions :**__\n • __Overworld__ : ${stats.overworld} | • __Aether II__ : ${stats.aether} | • __LOTR__ : ${stats.lotr}`;
+            let text = `Actuellement __${total || 0}__ joueurs sont connectés sur **Valorion** !\n🖐️ __**Lobbys :**__\n •  __Lobby 1__ : ${stats.lobby1 || 0} | •  __Lobby 2__: ${stats.lobby2 || 0} | •  __Lobby 3__ : ${stats.lobby3 || 0}\n⛏️ __** Minages :**__\n • __Minage 1__ : ${stats.minage1 || 0} | • __Minage 2__ : ${stats.minage2 || 0} | • __Minage 3__ : ${stats.minage3 || 0}\n🗡️ __** Mondes Factions :**__\n • __Overworld__ : ${stats.overworld || 0} | • __Aether II__ : ${stats.aether || 0} | • __LOTR__ : ${stats.lotr || 0}`;
             embed.addField(message.client.emotes.player+" **Joueurs connectés :**", text);
             m.edit(":bar_chart: **| Statistiques de Valorion :**", embed);
         } catch(e){
+            console.log(e);
             // if there is an error (like the server is down)
             return m.edit(this.client.emotes.error+" | Une erreur est survenue...");
         }
