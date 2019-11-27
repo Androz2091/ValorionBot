@@ -2,6 +2,8 @@
 
 Comme expliqué dans [ce post](https://www.twitlonger.com/show/n_1sr2t43), le serveur Valorion fermera ses portes le 26/11/2019. Ce bot n'est donc plus fonctionnel.
 
+### Fonctionnalités du bot
+
 Un bot Discord pour afficher les stats de Valorion, un serveur minecraft moddé.
 Il affiche les statistiques sur un salon qui se met à jour en temps réel !
 
